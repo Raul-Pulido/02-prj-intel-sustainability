@@ -8,8 +8,19 @@
 </head>
 <body>
 
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">Intel</a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Header / Hero Section -->
-  <header>
+  <header id="hero">
     <div>
       <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
       <img src="img/intel-header-logo.svg" alt="Intel Logo" />
@@ -28,7 +39,7 @@
   </header>
 
   <!-- Timeline Cards Section -->
-  <section class="timeline">
+  <section id="timeline" class="timeline">
 
     <!-- Card 1: 1968 -->
     <div class="timeline-item">
@@ -36,7 +47,7 @@
       <label for="toggle-1" class="more-info-btn">More Info</label>
       <h2>1968</h2>
       <h3>Intel Founded</h3>
-      <img src="img/1.jpg" alt="Intel Founded 1968">
+      <img src="img/1968.png" alt="Intel Founded 1968">
       <p>
         Robert Noyce and Gordon Moore rename the newly formed company 
         NM Electronics to Intel Corporation, laying the foundation for 
@@ -50,7 +61,7 @@
       <label for="toggle-2" class="more-info-btn">More Info</label>
       <h2>1971</h2>
       <h3>First Microprocessor</h3>
-      <img src="img/2.jpg" alt="First Microprocessor 1971">
+      <img src="img/1971.png" alt="First Microprocessor 1971">
       <p>
         Intel debuts the 4004, the world's first commercial microprocessor, 
         igniting the microprocessor revolution and propelling the future 
@@ -64,7 +75,7 @@
       <label for="toggle-3" class="more-info-btn">More Info</label>
       <h2>1978</h2>
       <h3>8086 Processor</h3>
-      <img src="img/3.jpg" alt="8086 Processor 1978">
+      <img src="img/1978.png" alt="8086 Processor 1978">
       <p>
         Launch of the 8086 processor, establishing the x86 architecture 
         that drives countless PCs and servers in the modern era.
@@ -77,7 +88,7 @@
       <label for="toggle-4" class="more-info-btn">More Info</label>
       <h2>1985</h2>
       <h3>386 Processor</h3>
-      <img src="img/4.jpg" alt="386 Processor 1985">
+      <img src="img/1985.png" alt="386 Processor 1985">
       <p>
         Intel introduces the 386 processor with 32-bit architecture, 
         ushering in a new era of performance and multitasking for 
@@ -91,7 +102,7 @@
       <label for="toggle-5" class="more-info-btn">More Info</label>
       <h2>2006</h2>
       <h3>Peak GHG Emissions</h3>
-      <!-- Add image -->
+      <img src="img/2006.png" alt="Peak GHG Emissions 2006">
       <p>
         This year marks Intel's highest annual greenhouse gas emissions 
         for operations. Over subsequent years, Intel invests heavily in 
@@ -106,7 +117,7 @@
       <label for="toggle-6" class="more-info-btn">More Info</label>
       <h2>2020</h2>
       <h3>RISE Strategy</h3>
-      <!-- Add image -->
+      <img src="img/generated-image-1.png" alt="RISE Strategy 2020">
       <p>
         Intel launches its RISE (Responsible, Inclusive, Sustainable, 
         Enabling) strategy and 2030 goals, aiming to drive industry-wide 
@@ -156,6 +167,6 @@
       </p>
     </div>
   </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+  <p>Scroll to view timeline | Hover over cards to learn more on desktop or click More Info on mobile!</p>
 </body>
 </html>

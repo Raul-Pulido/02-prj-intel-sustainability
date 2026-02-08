@@ -1,11 +1,115 @@
 /* Add your CSS here */
 
+/* ===== GLOBAL STYLES ===== */
+
+/* Enable smooth scroll snap for navigation */
+html {
+  /* Enable smooth scrolling */
+  scroll-behavior: smooth;
+  /* Enable scroll snap */
+  scroll-snap-type: y mandatory;
+}
+
+/* ===== NAVIGATION BAR STYLES ===== */
+
+/* Navigation bar */
+nav {
+  /* Dark background for navigation */
+  background-color: #333333;
+  /* Add padding */
+  padding: 15px 20px;
+  /* Make navigation sticky so it follows the screen */
+  position: sticky;
+  /* Stick to the top */
+  top: 0;
+  /* Keep navigation above other content */
+  z-index: 1000;
+}
+
+/* Navigation container using flexbox */
+.nav-container {
+  /* Use flexbox for layout */
+  display: flex;
+  /* Space between logo and links */
+  justify-content: space-between;
+  /* Center items vertically */
+  align-items: center;
+  /* Max width to match timeline */
+  max-width: 1400px;
+  /* Center the nav container */
+  margin: 0 auto;
+}
+
+/* Logo link */
+.nav-logo {
+  /* White text color */
+  color: #ffffff;
+  /* Larger font size for logo */
+  font-size: 24px;
+  /* Bold text */
+  font-weight: bold;
+  /* Remove underline */
+  text-decoration: none;
+}
+
+/* Navigation links list */
+.nav-links {
+  /* Use flexbox for horizontal layout */
+  display: flex;
+  /* Remove default list styling */
+  list-style: none;
+  /* Remove default margin */
+  margin: 0;
+  /* Remove default padding */
+  padding: 0;
+  /* Gap between links */
+  gap: 30px;
+}
+
+/* Navigation link items */
+.nav-links a {
+  /* White text color */
+  color: #ffffff;
+  /* Remove underline */
+  text-decoration: none;
+  /* Smooth transition for hover */
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for navigation links */
+.nav-links a:hover {
+  /* Change to Intel blue on hover */
+  color: #0071c5;
+}
+
+/* ===== HEADER / HERO SECTION STYLES ===== */
+
+/* Hero section with Intel blue background */
+header {
+  /* Intel blue background color */
+  background-color: #0071c5;
+  /* White text color for contrast */
+  color: #ffffff;
+  /* Add padding for spacing */
+  padding: 25px 20px;
+  /* Center content */
+  text-align: center;
+  /* Snap to this section when scrolling */
+  scroll-snap-align: start;
+  /* Account for sticky navigation bar height */
+  scroll-margin-top: 60px;
+}
+
 /* ===== TIMELINE STYLES ===== */
 
 /* Timeline container - vertical layout for mobile (680px and smaller) */
 .timeline {
   /* Set position relative so the timeline line can be positioned inside */
   position: relative;
+  /* Use flexbox to control item sizing */
+  display: flex;
+  /* Stack items vertically */
+  flex-direction: column;
   /* Add padding around the timeline */
   padding: 20px 10px;
   /* Maximum width to keep timeline readable */
@@ -14,6 +118,10 @@
   margin: 0 auto;
   /* Smooth transition for timeline adjustments */
   transition: all 0.4s ease;
+  /* Snap to this section when scrolling */
+  scroll-snap-align: start;
+  /* Account for sticky navigation bar height */
+  scroll-margin-top: 60px;
 }
 
 /* Timeline vertical line (for mobile) */
@@ -51,7 +159,7 @@
   /* Shadow for depth */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   /* Smooth transition when hovering and expanding - slower for small screens */
-  transition: transform 0.3s ease, box-shadow 0.8s ease, height 0.8s ease, min-height 0.8s ease, width 0.8s ease, margin 0.8s ease;
+  transition: transform 0.3s ease, box-shadow 0.8s ease, height 0.8s ease, min-height 0.8s ease, width 0.8s ease, margin 0.8s ease, padding 0.8s ease;
   /* Make card only as wide as needed */
   width: fit-content;
   /* Set max width so it doesn't get too wide */
@@ -60,6 +168,8 @@
   height: auto;
   /* Allow overflow to be visible */
   overflow: visible;
+  /* Ensure box-sizing includes padding and border */
+  box-sizing: border-box;
 }
 
 /* Timeline dot (circle marker) for each card */
@@ -114,8 +224,8 @@
   cursor: pointer;
   /* Above other content */
   z-index: 3;
-  /* Smooth transition for background color, font size, and padding */
-  transition: background-color 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
+  /* Smooth transition for position and styling */
+  transition: background-color 0.3s ease, font-size 0.3s ease, padding 0.3s ease, top 0.8s ease, right 0.8s ease, left 0.8s ease, transform 0.8s ease;
 }
 
 /* Darken button on hover */
@@ -123,22 +233,73 @@
   background-color: #005a9e;
 }
 
-/* Change button to X when checked */
+/* Change button to X when checked and move to top center above blue box */
 .toggle-checkbox:checked ~ .more-info-btn {
   /* Hide the original "More Info" text */
   font-size: 0;
-  /* Slightly larger padding for the X symbol */
-  padding: 6px 14px;
+  /* Adjust padding to fit X symbol properly */
+  padding: 8px 12px;
+  /* Position at top center above the blue box */
+  left: 50%;
+  right: auto;
+  top: -80px;
+  bottom: auto;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  /* Keep above blue box */
+  z-index: 4;
+  /* Fit content size */
+  width: fit-content;
+  height: fit-content;
 }
 
 .toggle-checkbox:checked ~ .more-info-btn::before {
   /* Show X symbol */
   content: '✕';
-  /* Restore font size for the X */
-  font-size: 16px;
+  /* Adjust font size for better fit */
+  font-size: 18px;
   /* Make it bold */
   font-weight: bold;
+  /* Center the X */
+  display: block;
 }
+
+/* Special positioning for 1968 card only - X touches the blue box */
+#toggle-1:checked ~ .more-info-btn {
+  /* Move X down to touch the blue box */
+  top: 0px;
+}
+
+/* Special positioning for 1971 card only - X touches the blue box */
+#toggle-2:checked ~ .more-info-btn {
+  /* Move X down to touch the blue box */
+  top: -20px;
+}
+
+/* Special positioning for 1978 card only - X touches the blue box */
+#toggle-3:checked ~ .more-info-btn {
+  /* Move X down to touch the blue box */
+  top: -20px;
+}
+
+/* Special positioning for 1985 card only - X touches the blue box */
+#toggle-4:checked ~ .more-info-btn {
+  /* Move X down to touch the blue box */
+  top: -20px;
+}
+
+/* Special positioning for 2006 card only - X moved up 20px */
+#toggle-5:checked ~ .more-info-btn {
+  /* Move X up 20px from default position */
+  top: -20px;
+}
+
+  /* Special positioning for 2006 card only - X moved up 20px */
+#toggle-6:checked ~ .more-info-btn {
+  /* Move X up 20px from default position */
+  top: 0px;
+}
+
 
 /* When checkbox is checked, expand the box and show content (mobile only) */
 .toggle-checkbox:checked ~ p {
@@ -146,8 +307,8 @@
   opacity: 1;
   /* Add blue shadow */
   box-shadow: 0 4px 12px rgba(0, 113, 197, 0.3);
-  /* Scale to full size and keep centered */
-  transform: translate(-50%, -50%) scale(1);
+  /* Scale to full size at bottom, keep centered */
+  transform: translateX(-50%) scale(1);
 }
 
 /* When checkbox is checked, hide h2 */
@@ -170,13 +331,23 @@
 
 /* When checkbox is checked, expand the timeline item */
 .timeline-item:has(.toggle-checkbox:checked) {
-  /* Expand to fit content */
-  min-height: 300px;
-  /* Allow width to be flexible and expand */
-  width: calc(100vw - 90px);
-  max-width: 400px;
-  /* Add extra bottom margin to create space for expanded content */
-  margin-bottom: 60px;
+  /* Allow height to grow based on content using flexbox */
+  height: auto;
+  min-height: fit-content;
+  /* Width adjusts to fit screen - leave more room to prevent overlap with other items */
+  width: calc(100vw - 180px);
+  max-width: calc(100vw - 180px);
+  /* Add internal padding to create space for the blue box */
+  padding: 25px;
+  /* Add equal top and bottom margin to center item between top and bottom items */
+  margin-top: 75px;
+  margin-bottom: 75px;
+  /* Prevent any overflow */
+  box-sizing: border-box;
+  /* Use flexbox to contain the blue box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style for the year (h2) */
@@ -208,16 +379,16 @@
   /* White text color for contrast with blue background */
   color: #ffffff;
   /* Comfortable line height for reading */
-  line-height: 1.5;
+  line-height: 1.4;
   /* Position absolutely for placement */
   position: absolute;
-  /* Center horizontally */
+  /* Position at bottom of timeline item, centered horizontally */
   left: 50%;
-  top: 50%;
-  /* Center using transform */
-  transform: translate(-50%, -50%) scale(0.9);
-  /* Add padding around the text */
-  padding: 15px;
+  bottom: 0;
+  /* Center horizontally and scale down slightly */
+  transform: translateX(-50%) scale(0.9);
+  /* Add padding */
+  padding: 20px;
   /* Blue background that replaces white box */
   background-color: #0071c5;
   /* Rounded corners to match card */
@@ -228,13 +399,25 @@
   transition: opacity 0.8s ease, box-shadow 0.8s ease, transform 0.8s ease;
   /* Add subtle shadow that will become more visible on hover */
   box-shadow: 0 2px 8px rgba(0, 113, 197, 0);
-  /* Make sure text appears above everything */
+  /* Make sure text appears above everything except X button */
   z-index: 2;
-  /* Appropriate font size for centered text */
-  font-size: 16px;
-  /* Set width to fit content with some constraints */
-  width: calc(100% - 40px);
-  max-width: 320px;
+  /* Use flexbox to position content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Adjust font size to fit better */
+  font-size: 14px;
+  /* Set width to expand almost to right edge with 10px margin */
+  width: calc(100vw - 70px - 50px - 10px);
+  max-width: calc(100vw - 70px - 50px - 10px);
+  /* Let height grow based on content */
+  min-height: fit-content;
+  height: auto;
+  /* Ensure box-sizing includes padding */
+  box-sizing: border-box;
+  /* Allow text to wrap */
+  text-align: center;
 }
 
 /* Style for images in timeline items */
@@ -263,6 +446,8 @@
   .timeline {
     /* Use flexbox to arrange items in a row */
     display: flex;
+    /* Change direction to horizontal (row) for big screens */
+    flex-direction: row;
     /* Allow items to wrap if needed */
     flex-wrap: nowrap;
     /* Enable horizontal scrolling */
@@ -329,21 +514,25 @@
   
   /* On desktop, make paragraph fill entire card */
   .timeline-item p {
-    /* Fill the entire card box on desktop */
-    top: 0;
+    /* Center the blue box vertically within the card */
+    top: 50%;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     width: auto;
     max-width: none;
+    /* Auto height based on content */
+    height: auto;
     /* Center content with flexbox */
     display: flex;
     align-items: center;
     justify-content: center;
     /* Larger padding for desktop */
     padding: 20px;
-    /* Reset transform for desktop */
-    transform: scale(0.9);
+    /* Larger font size for desktop */
+    font-size: 16px;
+    /* Center vertically and scale to full size */
+    transform: translateY(-50%) scale(1);
   }
   
   /* Hover effect - lift the card slightly */
@@ -372,8 +561,8 @@
     opacity: 1;
     /* Add blue shadow when visible */
     box-shadow: 0 4px 12px rgba(0, 113, 197, 0.3);
-    /* Scale to full size on desktop */
-    transform: scale(1);
+    /* Keep centered vertically and scale to full size on desktop */
+    transform: translateY(-50%) scale(1);
   }
   
   /* Hide image when hovering over the card */
